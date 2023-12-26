@@ -1,6 +1,9 @@
 # Portfolio Site
 ...
 
+## Preqrequisites
+...
+
 ## Setup
 
 Follow these steps for setting the project up on your local machine. 
@@ -26,3 +29,6 @@ $ npm run preview
 ```
 
 For more information, refer to the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction).
+
+## Retrospective
+...
