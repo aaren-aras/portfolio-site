@@ -6,14 +6,14 @@
 
 ## Setup
 
-Follow these steps for setting the project up on your local machine. 
+This project isn't production-ready, but if you still want to run it locally, you can do so with the following:
 
 ```bash
 # Clone repository 
-$ git clone https://github.com/aaren-aras/milestone-site-2.git
+$ git clone https://github.com/aaren-aras/portfolio-site.git
 
 # Navigate into project directory
-$ cd milestone-site-2
+$ cd portfolio-site
 
 # Install dependencies
 $ npm install
