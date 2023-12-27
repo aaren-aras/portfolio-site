@@ -2,7 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'; // Not needed
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   app: {
     head: {
       title: "Aaren Arasaratnam",
