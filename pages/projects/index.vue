@@ -1,7 +1,5 @@
 <template>
-  <div>
-
-  </div>
+<h1>hi lol</h1>
 </template>
 
 <script setup>
