@@ -6,6 +6,7 @@
 </template>
 
 <script lang="ts" setup>
+  // store code in composable?
   // const image = new Image();
   // image.src = '../assets/img/profile-pic.png';
 
