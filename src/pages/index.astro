@@ -12,33 +12,7 @@ import Card from '../components/Card.astro';
 			To get started, check out some <code>stuff</code> below, in one of these cards! Or not<br/>
 			<strong>Challenge:</strong> Try not to get bored!!!!
 		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/about-me"
-				title="About Me"
-				body="Learn about my life story and how I became the greatest web developer ever."
-			/>
-			<Card
-				href="/projects"
-				title="Projects"
-				body="Check out my really cool awesome spectacular projects that I've totally made by myself."
-			/>
-			<Card
-				href="/contacts"
-				title="Contacts"
-				body="Pls contact me, I'm so lonely and dead inside. :("
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="???"
-				body="Woah, a FOURTH card? Idk what to put here"
-			/>
-			<!-- <Card
-			href="https://astro.build/chat/"
-			title="???"
-			body="Woah, a FIFTH card? Idk what to put here"
-			/> -->
-		</ul>
+		
 	</main>
 </Layout>
 
@@ -97,13 +71,6 @@ import Card from '../components/Card.astro';
 			strong {
 				color: rgb(var(--accent-light));
 			}
-		}
-
-		.link-card-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-			gap: 2rem;
-			padding: 0;
 		}
 	}
 </style>
