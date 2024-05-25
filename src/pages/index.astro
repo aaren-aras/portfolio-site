@@ -4,7 +4,7 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Welcome to Astrobussy.">
-	<img class="astro-a" src="background.gif" alt="">
+	<!-- <img class="astro-a" src="background-2.gif" alt="Background Art"> -->
 	<main>
 		<h1>Hi! This is a <span class="text-gradient">portfolio </span>site!!</h1>
 		<h2>Can you believe it?!?!?</h2>
@@ -18,13 +18,14 @@ import Card from '../components/Card.astro';
 
 <style lang="scss">
 	.astro-a {
+		width: 100%;
+		height: 200%;	
+		object-fit: cover;
+		z-index: -1;
 		position: absolute;
 		top: -32px;
 		left: 50%;
 		transform: translatex(-50%) translatey(20%);
-		width: 100%;
-		height: 100%;
-		z-index: -1;
 	}
 	main {
 		margin: auto;
