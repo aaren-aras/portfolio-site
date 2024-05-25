@@ -19,16 +19,19 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<audio>
+			<source src="cherry-blossom.mp3" type="audio/mpeg">
+		</audio>
 		<svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
 		<script defer src="https://d3js.org/d3.v4.js"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 
-			var width = 3000;
-    	var height = 2000;
+			var width = 500;
+    	var height = 500;
 
 			var nodes = [
-      { color: "red", size: 5 },
+      { color: "grey", size: 5 },
       { color: "orange", size: 10 },
       { color: "yellow", size: 15 },
       { color: "green", size: 20 },
@@ -37,13 +40,13 @@ const { title } = Astro.props;
     ];
 
 		var links = [
-      { source: "red", target: "orange" },
+      { source: "grey", target: "orange" },
       { source: "orange", target: "yellow" },
       { source: "yellow", target: "green" },
       { source: "green", target: "blue" },
       { source: "blue", target: "purple" },
-      { source: "purple", target: "red" },
-      { source: "green", target: "red" }
+      { source: "purple", target: "grey" },
+      { source: "green", target: "grey" }
     ];
 
 		var svg = d3
@@ -56,8 +59,8 @@ const { title } = Astro.props;
       .data(links)
       .enter()
       .append("line")
-      .attr("stroke", "black")
-      .attr("stroke-width", 1);
+      .attr("stroke", "white")
+      .attr("stroke-width", 2);
 
     var nodeSelection = svg
       .selectAll("circle")
