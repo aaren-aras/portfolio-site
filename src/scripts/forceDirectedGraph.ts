@@ -1,7 +1,9 @@
-// Code adapted from 
+// Adapted from https://codesandbox.io/p/sandbox/d3js-draggable-force-directed-graph-py3rf?file=%2Fapp.js%3A63%2C50
 
 // document.addEventListener('DOMContentLoaded', () => {
 // need IIFE?
+
+// move into Astro component cause you need to pack it with css too anyway?
 
 var width = 500;
 var height = 500;
