@@ -1,3 +1,59 @@
 $primary-color: blue; 
 $secondary-color: red;
 $accent-color: green;
+
+// :root {
+//   --accent: 136, 58, 234;
+//   --accent-light: 224, 204, 250;
+//   --accent-dark: 49, 10, 101;
+//   --accent-gradient: linear-gradient(
+//     45deg,
+//     rgb(var(--accent)),
+//     rgb(var(--accent-light)) 30%,
+//     white 60%
+//   );
+// }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus-visible { outline: 2px solid $accent-color; }
+
+html { 
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}
+
+::selection { 
+  background-color: $accent-color; 
+  color: $primary-color;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background-color: $accent-color; }
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit;
+}
