@@ -1,4 +1,4 @@
-$primary-color: blue; 
+$primary-color: rgb(24, 23, 23); 
 $secondary-color: red;
 $accent-color: green;
 
@@ -27,17 +27,17 @@ html {
   scroll-behavior: smooth;
 }
 
-code {
-  font-family:
-    Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
-}
+// code {
+//   font-family:
+//     Menlo,
+//     Monaco,
+//     Lucida Console,
+//     Liberation Mono,
+//     DejaVu Sans Mono,
+//     Bitstream Vera Sans Mono,
+//     Courier New,
+//     monospace;
+// }
 
 ::selection { 
   background-color: $accent-color; 
