@@ -1,104 +1,121 @@
----
-
----
-
 <div>
-  <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
+  <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"></svg>
   <script is:inline src="https://d3js.org/d3.v4.js"></script>
+  <!-- <script is:inline src="https://cdn.jsdelivr.net/npm/@types/d3@7.4.3/+esm"></script> -->
   <script>
     // Adapted from https://codesandbox.io/p/sandbox/d3js-draggable-force-directed-graph-py3rf?file=%2Fapp.js%3A63%2C50
 
-    var width = 500;
-    var height = 500;
+    type NodeType = {
+      color: string;
+      size: number;
+      x?: number, 
+      y?: number;
+      fx?: number | null;
+      fy?: number | null;
+    }
 
-    var nodes = [
-      { color: "grey", size: 5 },
+    type LinkType = {
+      source: NodeType;
+      target: NodeType;
+    };
+
+    // Defining nodes
+    const nodeData: NodeType[] = [
+      { color: "#FFFFFF", size: 5 },
+      { color: "rgb(255, 255, 255)", size: 5 },
       { color: "white", size: 10 },
-      { color: "black", size: 15 },
-      { color: "green", size: 20 },
-      { color: "blue", size: 25 },
-      { color: "purple", size: 30 }
+      { color: "white", size: 10 },
+      { color: "white", size: 15 },
+      { color: "white", size: 15 }
     ];
 
-    var links = [
-      { source: "grey", target: "white" },
-      { source: "white", target: "black" },
-      { source: "black", target: "green" },
-      { source: "green", target: "blue" },
-      { source: "blue", target: "purple" },
-      { source: "purple", target: "grey" },
-      { source: "green", target: "grey" }
+    // Positioning nodes at centre 
+    const nodes: NodeType[] = nodeData.map(node => ({
+      ...node,
+      x: window.innerWidth/2,
+      y: window.innerHeight/2
+    }));
+
+    // Defining connections 
+    const links: LinkType[] = [
+      { source: nodes[0], target: nodes[1] },
+      { source: nodes[1], target: nodes[2] },
+      { source: nodes[2], target: nodes[3] },
+      { source: nodes[3], target: nodes[4] },
+      { source: nodes[4], target: nodes[5] },
+      { source: nodes[5], target: nodes[0] },
+      { source: nodes[3], target: nodes[0] }
     ];
 
-    var svg = d3
-      .select("svg")
-      .attr("width", width)
-      .attr("height", height);
+    const svg = d3.select("svg");
 
-    var linkSelection = svg
+    const linkSelection = svg
       .selectAll("line")
       .data(links)
       .enter()
       .append("line")
       .attr("stroke", "white")
-      .attr("stroke-width", 2);
+      .attr("stroke-width", 0.5);
 
-    var nodeSelection = svg
-      .selectAll("circle")
+    const nodeSelection = svg
+      .selectAll("circle")  
       .data(nodes)
       .enter()
       .append("circle")
-      .attr("r", d => d.size)
-      .attr("fill", d => d.color)
+      .attr("r", (d: NodeType) => d.size)
+      .attr("fill", (d: NodeType) => d.color)
       .call(
         d3
-          .drag()
+          .drag<SVGCircleElement, NodeType>() 
           .on("start", dragStart)
-          .on("drag", drag)
+          .on("drag", drag) 
           .on("end", dragEnd)
       );
 
-    var simulation = d3.forceSimulation(nodes);
-
-    simulation
-      .force("center", d3.forceCenter(width / 2, height / 2))
+    const simulation = d3
+      .forceSimulation<NodeType>(nodes)
+      // .force("center", d3.forceCenter(150, 150))
       .force("nodes", d3.forceManyBody())
       .force(
         "links",
         d3
           .forceLink(links)
-          .id(d => d.color)
-          .distance(d => 5 * (d.source.size + d.target.size))
+          // .id((d: NodeType) => d.color) <-- Needed for dynamic props
+          .distance((d: LinkType) => 5 * (d.source.size + d.target.size))
       )
       .on("tick", ticked);
 
     function ticked() {
       // console.log(simulation.alpha());
-
-      nodeSelection.attr("cx", d => d.x).attr("cy", d => d.y);
+      nodeSelection
+        .attr("cx", (d: NodeType) => d.x!)
+        .attr("cy", (d: NodeType) => d.y!);
 
       linkSelection
-        .attr("x1", d => d.source.x)
-        .attr("y1", d => d.source.y)
-        .attr("x2", d => d.target.x)
-        .attr("y2", d => d.target.y);
+        // Props are definitely defined 
+        .attr("x1", (d: LinkType) => d.source.x!)
+        .attr("y1", (d: LinkType) => d.source.y!)
+        .attr("x2", (d: LinkType) => d.target.x!)
+        .attr("y2", (d: LinkType) => d.target.y!);
     }
 
-    function dragStart(d) {
+    function dragStart(d: NodeType) {
       // console.log('drag start');
       simulation.alphaTarget(0.5).restart();
       d.fx = d.x;
       d.fy = d.y;
     }
 
-    function drag(d) {
+    function drag(d: NodeType) {
       // console.log('dragging');
       // simulation.alpha(0.5).restart()
-      d.fx = d3.event.x;
-      d.fy = d3.event.y;
+
+      // Bypass type checking (TS doesn't recognize `d3.event`)
+      d.fx = (window as any).event.x;
+      d.fy = (window as any).event.y;
     }
 
-    function dragEnd(d) {
+    function dragEnd(d: NodeType) {
       // console.log('drag end');
       simulation.alphaTarget(0);
       d.fx = null;
@@ -110,5 +127,8 @@
 <style lang="scss">
     @import '../global.scss';
 
-  	svg { margin: 0 auto; }
+    svg { 
+      position: absolute;
+      inset: 0;
+    }
 </style>
