@@ -29,7 +29,7 @@ $accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, 
 *:focus-visible { outline: 2px solid $accent-color; }
 
 html { 
-  font-family: system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
