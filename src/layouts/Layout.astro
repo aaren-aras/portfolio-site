@@ -1,6 +1,7 @@
 ---
 import Card from '../components/Card.astro';
 import ForceDirectedGraph from '../components/ForceDirectedGraph.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
 
 interface Props {
 	title: string;
@@ -47,9 +48,7 @@ const { title } = Astro.props;
 			</ul>
 		</nav>
 		<slot />
-		<audio controls loop>
-			<source src="audio/cherry-blossom.mp3" type="audio/mpeg">
-		</audio>
+		<AudioPlayer/>
 	</body>
 </html>
 
@@ -61,31 +60,33 @@ const { title } = Astro.props;
 
 		.bkgd {
 			// Consider (repeating-)linear-gradient or (repeating-)radial-gradient?
-			background: repeating-conic-gradient($primary-color 30%, $secondary-color 80%);
+			background: repeating-conic-gradient($primary-color 30%, $secondary-color 70%);
 			background-size: 25px 25px;		
-			opacity: 0.01;
+			opacity: 0.03;
 			z-index: -1;
 			position: fixed;
 			inset: 0; 
 		}
 
 		audio {
-			width: 10vw;
-			opacity: 0.1;
+			width: 20em;
+			// background: #13151a;
+
+			opacity: 0.7;
 
 			position: absolute;
-			bottom: 1rem;
-			left: 1rem;
+			inset: auto auto 1rem 1rem;
+
 			&::-webkit-media-controls-panel {
-				background-color: $primary-color;
-				padding: 1em;
-				border-radius: 0;
+				// background-color: $accent-gradient;
+				// padding: 1em;
+				// border-radius: 0;
+				opacity: 1;
 			}
 
-			&::-webkit-media-controls-play-button {
-				background-color: $secondary-color;
-				// border-radius: 123em;
-				margin: 1em;
+			&::-webkit-media-controls-play-button, &::-webkit-media-controls-timeline, &::-webkit-media-controls-volume-slider {
+				// background-color: $secondary-color;
+				border-radius: 1em;
 			}
 
 			// &::-webkit-media-controls-current-time-display {
@@ -93,50 +94,50 @@ const { title } = Astro.props;
 			// }
 
 			&::-webkit-media-controls-time-remaining-display {
-				color: $secondary-color;
+				// color: $secondary-color;
 			}
 
-			&::-webkit-media-controls-timeline {
-				border-radius: 40px;
-				background-color: $secondary-color;
-			}
+			// &::-webkit-media-controls-timeline {
+			// 	border-radius: 0;
+			// 	background-color: $secondary-color;
+			// }
 
 			&::-webkit-media-controls-volume-slider {
-				background-color: $secondary-color;
-				border-radius: 50px;
+				// background-color: $secondary-color;
+				// border-radius: 50px;
 				padding-left: 10px;
 				padding-right: 10px;
 			}
 
-			&::-webkit-media-controls-mute-button {
-				background-color: $secondary-color;
-				border-radius: 50%;
-			}
+			// &::-webkit-media-controls-mute-button {
+			// 	// background-color: $secondary-color;
+			// 	border-radius: 50%;
+			// }
 
-			&::-webkit-media-controls-play-button {
-				background-color: $secondary-color;
-				border-radius: 50%;
-			}
+			// &::-webkit-media-controls-play-button {
+			// 	// background-color: $secondary-color;
+			// 	border-radius: 50%;
+			// }
 
-			&::-webkit-media-controls-fullscreen-button {
-				background-color: $secondary-color;
-				border-radius: 50%;
-			}
+			// &::-webkit-media-controls-fullscreen-button {
+			// 	background-color: $secondary-color;
+			// 	border-radius: 50%;
+			// }
 
-			&::-webkit-media-controls-volume-slider-container {
-				background-color: $secondary-color;
-				border-radius: 50px;
-			}
+			// &::-webkit-media-controls-volume-slider-container {
+			// 	background-color: $secondary-color;
+			// 	border-radius: 50px;
+			// }
 			
-			&::-webkit-media-controls-seek-back-button {
-				background-color: $secondary-color;
-				border-radius: 50%;
-			}
+			// &::-webkit-media-controls-seek-back-button {
+			// 	background-color: $secondary-color;
+			// 	border-radius: 50%;
+			// }
 
-			&::-webkit-media-controls-seek-forward-button {
-				background-color: $secondary-color;
-				border-radius: 50%;
-			}
+			// &::-webkit-media-controls-seek-forward-button {
+			// 	background-color: $secondary-color;
+			// 	border-radius: 50%;
+			// }
 		}
 	}
 	nav {

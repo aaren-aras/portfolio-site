@@ -1,13 +1,11 @@
-$primary-color: rgb(24, 23, 23); 
-$secondary-color: white;
-$accent-color: purple;
-$comp-color: gold; // Complementary
+$primary-color: rgb(31, 28, 34); 
+$secondary-color: rgb(239, 231, 253);
+$accent-color: rgb(120, 40, 120);
+$comp-color: rgb(201, 183, 78); // Complementary
+$comp-color-dark: rgb(156, 103, 53); // Complementary
 $opp-color: green; // Opposite
 
-
-$accent-color-light: rgb(224, 204, 250);
-$accent-color-dark: rgb(49, 10, 101);
-$accent-gradient: linear-gradient(45deg, $accent-color-dark, $accent-color-light, 30%, white 60%);
+$accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, $comp-color 40%);
 
 // remove this after implementing styles on Card.astro
 :root {
