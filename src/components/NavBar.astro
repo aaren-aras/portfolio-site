@@ -1,0 +1,34 @@
+---
+import NavLink from './NavLink.astro';
+---
+
+<nav>
+  <ul role="list" class="link-card-grid">
+    <NavLink
+      href="/"
+      title="Home"
+      body="Landing page."
+    />
+    <NavLink
+      href="/bio"
+      title="Bio"
+      body="Learn about my life story and how I became the greatest web developer ever."
+    />
+    <NavLink
+      href="/projects"
+      title="Projects"
+      body="Check out my really cool awesome spectacular projects that I've totally made by myself."
+    />
+    <NavLink
+      href="/hobbies"
+      title="Hobbies"
+      body="Some things I enjoy doing in my free time."
+    />
+  </ul>
+</nav>
+
+<style lang="scss">
+  @import '../global.scss';
+
+
+</style>
