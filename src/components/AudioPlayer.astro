@@ -210,8 +210,6 @@
 			}
     </script>
 
-    <!-- <div id="color-switch"><img src="https://i.imgur.com/SYyiJUa.png"> -->
-  
       <div id="volume-slider-container">
         <output id="volume-output">100</output>
         <div id="volume-slider-squish">
@@ -232,33 +230,17 @@
 </div>
 
 <style lang="scss">
-	// @import '../global.scss';
+	@import '../global.scss';
 	
-	// #color-switch {
-	//     width: 100%;
-	//     max-width: 608px;
-	//     height: 100%;
-	//     max-height: 38px;
-	//     position: relative;
-	// }
-	// #color-switch img {
-	//   position: absolute;
-	//   object-fit: cover;
-	//   width: 100%;
-	//   height: 100%;
-	//   z-index: 99;
-	//   mix-blend-mode: lighten;
-	//   pointer-events: none;
-	// }
-button {
-  width: 25px;
-  height: 25px;
-  padding: 0;
-  border: 0;
-	margin-top: 4px;
-	outline: none;
-  cursor: pointer;
-}
+  button {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 0;
+    margin-top: 4px;
+    outline: none;
+    cursor: pointer;
+  }
 /* WRAPS */
 #player {
   --seek-before-width: 0%;
@@ -268,7 +250,7 @@ button {
   height: 100%;
   max-width: 608px;
   width: 100%;
-  z-index: -5;
+  z-index: 5;
   position: absolute;
   inset: auto auto 0 0;
 
@@ -279,10 +261,10 @@ button {
   position: relative;
   max-width: 600px;
   height: 32px;
-  border: 4px solid white;
+  border: 4px solid $secondary-color;
   z-index: 1;
   /* background color */
-  background-color: #000;
+  background-color: $primary-color;
 }
 #volume-slider-container {
   position: absolute;
@@ -329,7 +311,7 @@ button {
   width: var(--volume-before-width, 0);
   height: 100%;
 
-  background-color: #fff;
+  background-color: $secondary-color;
 }
 
 
@@ -361,7 +343,7 @@ path {
     width: 32px;
     text-align: center;
     line-height: 32px;  
-    color: #fff;
+    color: $secondary-color;
   mix-blend-mode: difference;
   font-weight: 700;
   letter-spacing: -1px;
@@ -395,7 +377,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     height: 32px;
     cursor: default;
     /* COLOR AFTER */
-    background-color: #000;
+    background-color: $primary-color;
 }
 input[type="range"]::before {
     position: absolute;
@@ -404,7 +386,7 @@ input[type="range"]::before {
     width: var(--seek-before-width);
     height: 32px;
     /* COLOR BEFORE */
-    background-color: #fff;
+    background-color: $secondary-color;
     cursor: default;
 }
 input[type="range"]::-webkit-slider-thumb {
@@ -423,10 +405,10 @@ input[type="range"]::-moz-range-track {
     width: 100%;
     height: 32px;
     cursor: default;
-    background-color: black;
+    background-color: $primary-color;
 }
 input[type="range"]::-moz-range-progress {
-    background-color: white;
+    background-color: $secondary-color;
   height: 32px;
 }
 input[type="range"]::-moz-focus-outer {
@@ -474,7 +456,7 @@ output {
     font-size: 12px;
     float: left;
     clear: left;
-    color: #fff;
+    color: $secondary-color;
   float: left;
 }
 #volume-slider {
@@ -485,20 +467,20 @@ output {
   height: 4px;
   float: left;
 /*   background-color: blue; */
-  background-color: #000;
+  background-color: $primary-color;
 }
 #volume-slider::-webkit-slider-runnable-track {
-    background: rgba(0, 0, 0, 1);
+    background: rgba($primary-color, 1);
   float: left;
   height: 4px;
 }
 #volume-slider::-moz-range-track {
-  background: rgba(0, 0, 0, 1);
+  background: rgba($primary-color, 1);
   float: left;
   height: 4px;
 }
 #volume-slider::-ms-fill-upper {
-  background: rgba(0, 0, 0, 1);
+  background: rgba($primary-color, 1);
   float: left;
   height: 4px;
 }
@@ -523,7 +505,7 @@ output {
 #volume-slider-squish > input[type="range"]::-webkit-slider-thumb {
   height: 4px;
   width: 4px;
-  background-color: #fff;
+  background-color: $secondary-color;
   transform: scale(1);
   opacity: 1;
 }
