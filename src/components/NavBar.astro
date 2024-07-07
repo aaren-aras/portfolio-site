@@ -3,8 +3,8 @@ import NavLink from './NavLink.astro';
 ---
 
 <nav>
-  <ul role="list" class="link-card-grid">
-    <NavLink
+  <ul role="list">
+    <NavLink  
       href="/"
       title="Home"
       body="Landing page."
@@ -30,5 +30,18 @@ import NavLink from './NavLink.astro';
 <style lang="scss">
   @import '../global.scss';
 
+  nav {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    right: 1.5rem;
 
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      // list-style: none;
+    }
+  }
 </style>
