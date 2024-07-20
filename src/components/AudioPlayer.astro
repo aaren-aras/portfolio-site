@@ -261,10 +261,10 @@
   position: relative;
   max-width: 600px;
   height: 32px;
-  border: 4px solid $secondary-color;
+  border: 4px solid $secondary;
   z-index: 1;
   /* background color */
-  background-color: $primary-color;
+  background-color: $primary;
 }
 #volume-slider-container {
   position: absolute;
@@ -311,7 +311,7 @@
   width: var(--volume-before-width, 0);
   height: 100%;
 
-  background-color: $secondary-color;
+  background-color: $secondary;
 }
 
 
@@ -343,7 +343,7 @@ path {
     width: 32px;
     text-align: center;
     line-height: 32px;  
-    color: $secondary-color;
+    color: $secondary;
   mix-blend-mode: difference;
   font-weight: 700;
   letter-spacing: -1px;
@@ -377,7 +377,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     height: 32px;
     cursor: default;
     /* COLOR AFTER */
-    background-color: $primary-color;
+    background-color: $primary;
 }
 input[type="range"]::before {
     position: absolute;
@@ -386,7 +386,7 @@ input[type="range"]::before {
     width: var(--seek-before-width);
     height: 32px;
     /* COLOR BEFORE */
-    background-color: $secondary-color;
+    background-color: $secondary;
     cursor: default;
 }
 input[type="range"]::-webkit-slider-thumb {
@@ -405,10 +405,10 @@ input[type="range"]::-moz-range-track {
     width: 100%;
     height: 32px;
     cursor: default;
-    background-color: $primary-color;
+    background-color: $primary;
 }
 input[type="range"]::-moz-range-progress {
-    background-color: $secondary-color;
+    background-color: $secondary;
   height: 32px;
 }
 input[type="range"]::-moz-focus-outer {
@@ -456,7 +456,7 @@ output {
     font-size: 12px;
     float: left;
     clear: left;
-    color: $secondary-color;
+    color: $secondary;
   float: left;
 }
 #volume-slider {
@@ -467,20 +467,20 @@ output {
   height: 4px;
   float: left;
 /*   background-color: blue; */
-  background-color: $primary-color;
+  background-color: $primary;
 }
 #volume-slider::-webkit-slider-runnable-track {
-    background: rgba($primary-color, 1);
+    background: rgba($primary, 1);
   float: left;
   height: 4px;
 }
 #volume-slider::-moz-range-track {
-  background: rgba($primary-color, 1);
+  background: rgba($primary, 1);
   float: left;
   height: 4px;
 }
 #volume-slider::-ms-fill-upper {
-  background: rgba($primary-color, 1);
+  background: rgba($primary, 1);
   float: left;
   height: 4px;
 }
@@ -505,7 +505,7 @@ output {
 #volume-slider-squish > input[type="range"]::-webkit-slider-thumb {
   height: 4px;
   width: 4px;
-  background-color: $secondary-color;
+  background-color: $secondary;
   transform: scale(1);
   opacity: 1;
 }
