@@ -5,11 +5,12 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Aaren Arasaratnam">
 
 	<main>
-		<div class="big-text">
-			<h3>Come one, come all</h3>
+		<div class="welcome-text">
+			<h3>Come one, come all!</h3>
 			<h1>My name's<span class="text-gradient"> Aaren.</span></h1>
 			<h2>How's it going?</h2>
 		</div>
+		<img src="me.jpg">
 		<!-- <p class="instructions">
 			To get started, check out some <code>stuff</code> below, in one of these cards! Or not<br/>
 			<strong>Challenge:</strong> Try not to get bored!!!!
@@ -28,13 +29,15 @@ import Layout from '../layouts/Layout.astro';
 		// // font-size: 20px;
 		// line-height: 1.6;
 
-		.big-text {
+		.welcome-text {
 			text-align: left;
 			color: $secondary;
-			margin-bottom: 2rem;
+			z-index: 5;
+			position: absolute;
+			inset: 3rem auto auto 3rem;
 
 			h1 {
-				font-size: 3rem;
+				font-size: 5rem;
 				font-weight: 700;
 				line-height: 1;
 				margin-top: 0.5em;
@@ -48,19 +51,33 @@ import Layout from '../layouts/Layout.astro';
 				// }
 			}
 
-			h3 {
-				font-size: 1.5rem;
-				font-weight: 400;
-				margin-bottom: 0.5em;
-			}
-
 			h2 {
-				font-size: 2rem;
+				font-size: 3rem;
 				font-weight: 400;
 				margin-top: 0.5em;
 			}
+
+			h3 {
+				font-size: 2rem;
+				font-weight: 400;
+				margin-bottom: 0.5em;
+			}
 		}
 
+		img {
+			width: 50%;
+			filter: grayscale(100%) contrast(0%) invert(30%) saturate(100%);
+			z-index: -50;
+			position: absolute;
+			top: 0;
+		}
+
+		
+		// img::after {
+    //         content: '';
+    //         border: 2px solid black; /* Outline effect */
+    //         pointer-events: none;
+    //     }
 		// h1 {
 		// 	// width: 400%;
 		// 	font-size: 4rem;
