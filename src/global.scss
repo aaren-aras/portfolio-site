@@ -1,11 +1,15 @@
-$primary-color: rgb(31, 28, 34); 
-$secondary-color: rgb(239, 231, 253);
-$accent-color: rgb(120, 40, 120);
+$primary-color: rgb(34, 29, 28); 
+$secondary-color: rgb(253, 242, 231);
+$accent-color-1: rgb(133, 89, 66);
+$accent-color-2: rgb(147, 108, 87);
+$accent-color-3: rgb(155, 126, 110);
+
+
 $comp-color: rgb(201, 183, 78); // Complementary
 $comp-color-dark: rgb(156, 103, 53); // Complementary
 $opp-color: green; // Opposite
 
-$accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, $comp-color 40%);
+$accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, $accent-color-1 40%);
 
 // remove this after implementing styles on Card.astro
 :root {
@@ -26,7 +30,7 @@ $accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, 
   padding: 0;
 }
 
-*:focus-visible { outline: 2px solid $accent-color; }
+*:focus-visible { outline: 2px solid $accent-color-2; }
 
 html { 
   font-family: 'Inter', system-ui, sans-serif;
@@ -47,12 +51,12 @@ code {
 }
 
 ::selection { 
-  background-color: $accent-color; 
-  color: $primary-color;
+  background-color: $opp-color !important; 
+  color: $opp-color !important;
 }
 
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-thumb { background-color: $accent-color; }
+::-webkit-scrollbar-thumb { background-color: $accent-color-1; }
 
 img, picture, svg, video {
   display: block;
