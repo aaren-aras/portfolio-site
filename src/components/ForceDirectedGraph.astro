@@ -63,6 +63,7 @@
       .data(nodes)
       .enter()
       .append("circle")
+      .attr("class", "node skewed")
       .attr("r", (d: NodeType) => d.size)
       .attr("fill", (d: NodeType) => d.color)
       .style("cursor", "grab") 
@@ -140,5 +141,10 @@
       z-index: -1;
       position: absolute;
       // inset: 0;
+    }
+
+    .skewed {
+      transform: skewX(-200deg) !important;
+      transform-origin: center;
     }
 </style>
