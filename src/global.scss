@@ -12,17 +12,7 @@ $opp-color: green; // Opposite
 $accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, $accent-color-1 40%);
 
 // remove this after implementing styles on Card.astro
-:root {
-  --accent: 136, 58, 234;
-  --accent-light: 224, 204, 250;
-  --accent-dark: 49, 10, 101;
-  --accent-gradient: linear-gradient(
-    45deg,
-    rgb(var(--accent)),
-    rgb(var(--accent-light)) 30%,
-    white 60%
-  );
-}
+
 
 *, *::before, *::after {
   // box-sizing: border-box; <-- cuts off bottom of AudioPlayer? why
@@ -33,7 +23,7 @@ $accent-gradient: linear-gradient(45deg, $primary-color, $secondary-color, 60%, 
 *:focus-visible { outline: 2px solid $accent-color-2; }
 
 html { 
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace, system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
