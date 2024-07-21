@@ -20,12 +20,14 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Portfolio website!" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<link rel="icon" type="image/svg+xml" href="favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<div class="bkgd"></div>
+		<div class="bkgd-1"></div>
+
 		<!-- <EffectButtons/> -->
 		<ForceDirectedGraph/>
 		<slot />
@@ -39,34 +41,55 @@ const { title } = Astro.props;
 	@import '../global.scss';
 	
 	body {
+		// background: $primary;
+
 		.bkgd {
 			// Consider (repeating-)linear-gradient or (repeating-)radial-gradient?
-			// background: $primary;
-			background: repeating-conic-gradient($primary 50%, $accent-2 50%);
+			background: repeating-conic-gradient($primary 70%, $secondary 30%);
 			background-size: 100% 100%;		
 			opacity: 0.1;
 			z-index: -1;
 			position: fixed;
 			inset: 0; 
-			animation: gradient 0.1s linear infinite;
+			animation: gradient 50s linear infinite;
 
-			&::after {
-				content: '';
-				background: url('linkedin-me.png');
-				filter: contrast(50%) opacity(100%) blur(4px) drop-shadow(30em 1px 5px $accent-3);
-				z-index: -1;
-				position: fixed;
-				right: 2rem;
-			}
+			// &::after {
+			// 	content: '';
+			// 	background: url('linkedin-me.png');
+			// 	filter: contrast(50%) opacity(100%) blur(4px) drop-shadow(30em 1px 5px $accent-3);
+			// 	z-index: -1;
+			// 	position: fixed;
+			// 	right: 2rem;
+			// 	animation: test 50s linear infinite;
+
+			// }
 
 			@keyframes gradient {
-			0% {
-				background-position: 0% 0%;
-			}
-			100% {
-				background-position: 50% 100%;
+				0% {
+					background-position: 0% 0%;
+					transform: translateY(75%);
+				}
+				100% {
+					background-position: 100% 100%;
+					transform: translateX(25%);
+				}
 			}
 		}
-		}
+
+		.bkgd-1 {
+			width: 100px;
+			height: 300px;
+			// Consider (repeating-)linear-gradient or (repeating-)radial-gradient?
+			// background: repeating-conic-gradient($primary 70%, $secondary 30%);
+			background: black;
+			// background-size: 100% 100%;		
+			opacity: 0.1;
+			z-index: -1;
+			position: fixed;
+			inset: 4em; 
+			transform: rotateZ(45deg) !important;
+			// transform: skew(0deg, 30deg);
+			animation: gradient 10s linear infinite;
 	}
+}
 </style>
