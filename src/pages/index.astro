@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<div class="welcome-text">
 			<h3>Come one, come all!</h3>
-			<h1>My name's<span class="text-gradient"> Aaren.</span></h1>
+			<h1>My name's<span class="name"> Aaren.</span></h1>
 			<h2>How's it going?</h2>
 		</div>
 		<img src="me.jpg">
@@ -31,24 +31,20 @@ import Layout from '../layouts/Layout.astro';
 
 		.welcome-text {
 			text-align: left;
+			line-height: 0.9;
 			color: $secondary;
 			z-index: 5;
 			position: absolute;
-			inset: 3rem auto auto 3rem;
+			inset: 6rem auto auto 8rem;
 
 			h1 {
-				font-size: 5rem;
+				font-size: 6rem;
 				font-weight: 700;
 				line-height: 1;
-				margin-top: 0.5em;
 
-				// .text-gradient {
-				// 	background: $accent-gradient;
-				// 	-webkit-background-clip: text;
-				// 	-webkit-text-fill-color: transparent;
-				// 	background-size: 400%;
-				// 	background-position: 0%;
-				// }
+				.name {
+					color: rgba($accent-1, 0.4);
+				}
 			}
 
 			h2 {
@@ -59,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
 
 			h3 {
 				font-size: 2rem;
-				font-weight: 400;
+				font-weight: 600;
 				margin-bottom: 0.5em;
 			}
 		}
