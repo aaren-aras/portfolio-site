@@ -1,0 +1,24 @@
+---
+interface Props {
+  type: string;
+}
+
+const { type } = Astro.props;
+---
+
+<img src=`img/${type}.png` alt="">
+
+<style lang="scss">
+  @import '../global.scss';
+
+  img {
+    width: 40%;
+    border: none;
+    // filter: grayscale(50%) constrast(50%) saturate(100%);
+    opacity: 0.01;
+    z-index: -50;
+    position: absolute;
+    right: 0;
+    // box-shadow: 0 0 1rem rgba($accent-1, 0.5);
+  }
+</style>
