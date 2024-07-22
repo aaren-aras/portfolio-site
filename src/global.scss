@@ -1,30 +1,24 @@
-$primary-color: rgb(24, 23, 23); 
-$secondary-color: red;
-$accent-color: green;
+$primary: rgb(23, 19, 19); 
+$secondary: rgb(253, 242, 231);
+$accent-1: rgb(133, 89, 66);
+$accent-2: rgb(147, 108, 87);
+$accent-3: rgb(155, 126, 110);
+
+$accent-gradient: linear-gradient(45deg, $primary, $secondary, 60%, $accent-1 40%);
 
 // remove this after implementing styles on Card.astro
-:root {
-  --accent: 136, 58, 234;
-  --accent-light: 224, 204, 250;
-  --accent-dark: 49, 10, 101;
-  --accent-gradient: linear-gradient(
-    45deg,
-    rgb(var(--accent)),
-    rgb(var(--accent-light)) 30%,
-    white 60%
-  );
-}
+
 
 *, *::before, *::after {
-  box-sizing: border-box;
+  // box-sizing: border-box; <-- cuts off bottom of AudioPlayer? why
   margin: 0;
   padding: 0;
 }
 
-*:focus-visible { outline: 2px solid $accent-color; }
+*:focus-visible { outline: 2px solid $accent-2; }
 
 html { 
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace, system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -42,12 +36,12 @@ code {
 }
 
 ::selection { 
-  background-color: $accent-color; 
-  color: $primary-color;
+  background-color: $accent-1; 
+  color: $accent-2;
 }
 
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-thumb { background-color: $accent-color; }
+::-webkit-scrollbar-thumb { background-color: $accent-1; }
 
 img, picture, svg, video {
   display: block;
@@ -58,4 +52,8 @@ img, picture, svg, video {
 a { 
   text-decoration: none; 
   color: inherit;
+}
+
+@mixin transition-ease {
+  transition: all 0.1s ease-in-out;
 }

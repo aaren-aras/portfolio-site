@@ -1,52 +1,39 @@
 ---
-import Card from '../components/Card.astro';
+import NavBar from '../components/NavBar.astro';
 import ForceDirectedGraph from '../components/ForceDirectedGraph.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
+import EffectButtons from '../components/EffectButtons.astro';
+import PortfolioButtons from '../components/PortfolioButtons.astro';
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
 ---
+
+<!-- TO DO: add all main layout UI buttons on the corners -->
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Portfolio website!" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<link rel="icon" type="image/svg+xml" href="favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<div class="bkgd"></div>
+		<div class="bkgd-1"></div>
+
+		<!-- <EffectButtons/> -->
 		<ForceDirectedGraph/>
-		<nav>
-			<ul role="list" class="link-card-grid">
-				<Card
-					href="/"
-					title="Home"
-					body="Home sweet home"
-				/>
-				<Card
-					href="/about-me"
-					title="About Me"
-					body="Learn about my life story and how I became the greatest web developer ever."
-				/>
-				<Card
-					href="/projects"
-					title="Projects"
-					body="Check out my really cool awesome spectacular projects that I've totally made by myself."
-				/>
-				<Card
-					href="/test-2.html"
-					title="Contacts"
-					body="Pls contact me, I'm so lonely and dead inside. :("
-				/>
-			</ul>
-		</nav>
 		<slot />
+		<NavBar/>
+		<AudioPlayer/>
+		<PortfolioButtons/>
 	</body>
 </html>
 
@@ -54,30 +41,58 @@ const { title } = Astro.props;
 	@import '../global.scss';
 	
 	body {
-		background: #13151a;
+		// background: $primary;
 
 		.bkgd {
 			// Consider (repeating-)linear-gradient or (repeating-)radial-gradient?
-			background: repeating-conic-gradient($primary-color 30%, $secondary-color 80%);
-			background-size: 25px 25px;		
-			opacity: 0.01;
+			background: repeating-conic-gradient($primary 70%, $secondary 30%);
+			background-size: 100% 100%;		
+			opacity: 0.1;
 			z-index: -1;
 			position: fixed;
 			inset: 0; 
-		}
-	}
+			animation: gradient 50s linear infinite;
+			perspective: 5000px;
+			transform-style: preserve-3d;
+			// &::after {
+			// 	content: '';
+			// 	background: url('linkedin-me.png');
+			// 	filter: contrast(50%) opacity(100%) blur(4px) drop-shadow(30em 1px 5px $accent-3);
+			// 	z-index: -1;
+			// 	position: fixed;
+			// 	right: 2rem;
+			// 	animation: test 50s linear infinite;
 
-	nav {
-		.link-card-grid {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			// gap: 2rem;
+			// }
 
-			// background: $primary-color;
-			padding: 0;
-			margin: 0;
+			@keyframes gradient {
+				0% {
+					background-position: 0% 0%;
+					transform: translateY(75%);
+				}
+				100% {
+					background-position: 100% 100%;
+					transform: translateX(25%);
+				}
+			}
 		}
+
+		.bkgd-1 {
+			width: 100px;
+			height: 300px;
+			// Consider (repeating-)linear-gradient or (repeating-)radial-gradient?
+			// background: repeating-conic-gradient($primary 70%, $secondary 30%);
+			background: black;
+			// background-size: 100% 100%;		
+			opacity: 0.1;
+			z-index: -1;
+			position: fixed;
+			inset: 4em; 
+			perspective: 1000px;
+			transform-style: preserve-3d;
+			transform: skew(0deg, 30deg);
+			transform: rotateZ(30deg);
+			animation: gradient 10s linear infinite;
 	}
+}
 </style>

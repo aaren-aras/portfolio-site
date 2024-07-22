@@ -1,10 +1,13 @@
+<!-- Adapted from https://codesandbox.io/p/sandbox/d3js-draggable-force-directed-graph-py3rf?file=%2Fapp.js%3A63%2C50 -->
+
+<!-- TO DO: add hover/click/drag/effects to nodes, add z-index perspective tricks, add useful comments and understand ALL of the code (take notes for 'TypeScript' file on Obsidian) -->
+
 <div>
+  <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"></svg>
   <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"></svg>
   <script is:inline src="https://d3js.org/d3.v4.js"></script>
   <!-- <script is:inline src="https://cdn.jsdelivr.net/npm/@types/d3@7.4.3/+esm"></script> -->
   <script>
-    // Adapted from https://codesandbox.io/p/sandbox/d3js-draggable-force-directed-graph-py3rf?file=%2Fapp.js%3A63%2C50
-
     type NodeType = {
       color: string;
       size: number;
@@ -21,12 +24,12 @@
 
     // Defining nodes
     const nodeData: NodeType[] = [
-      { color: "#FFFFFF", size: 5 },
-      { color: "rgb(255, 255, 255)", size: 5 },
-      { color: "white", size: 10 },
-      { color: "white", size: 10 },
+      { color: "#FFFFFF", size: 10 },
+      { color: "rgb(255, 255, 255)", size: 10 },
       { color: "white", size: 15 },
-      { color: "white", size: 15 }
+      { color: "white", size: 15 },
+      { color: "white", size: 20 },
+      { color: "white", size: 25 }
     ];
 
     // Positioning nodes at centre 
@@ -62,14 +65,17 @@
       .data(nodes)
       .enter()
       .append("circle")
+      .attr("class", "node skewed")
       .attr("r", (d: NodeType) => d.size)
       .attr("fill", (d: NodeType) => d.color)
+      .style("cursor", "grab") 
       .call(
         d3
           .drag<SVGCircleElement, NodeType>() 
           .on("start", dragStart)
           .on("drag", drag) 
           .on("end", dragEnd)
+
       );
 
     const simulation = d3
@@ -99,27 +105,33 @@
         .attr("y2", (d: LinkType) => d.target.y!);
     }
 
-    function dragStart(d: NodeType) {
+    function dragStart(this: SVGCircleElement, d: NodeType) {
       // console.log('drag start');
       simulation.alphaTarget(0.5).restart();
       d.fx = d.x;
       d.fy = d.y;
+
+      d3.select(this).style("cursor", "grabbing");  
+      svg.style("cursor", "grabbing"); // Ensure cursor is "grabbing" even if it's off the node
     }
 
     function drag(d: NodeType) {
       // console.log('dragging');
       // simulation.alpha(0.5).restart()
-
+    
       // Bypass type checking (TS doesn't recognize `d3.event`)
       d.fx = (window as any).event.x;
       d.fy = (window as any).event.y;
     }
 
-    function dragEnd(d: NodeType) {
+    function dragEnd(this: SVGCircleElement, d: NodeType) {
       // console.log('drag end');
       simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
+      
+      d3.select(this).style("cursor", "grab"); // Ensure cursor is "grab" if it's still on the node
+      svg.style("cursor", "default");  
     }
   </script>
 </div>
@@ -128,7 +140,13 @@
     @import '../global.scss';
 
     svg { 
+      z-index: -1;
       position: absolute;
-      inset: 0;
+      // inset: 0;
+    }
+
+    .skewed {
+      transform: skewX(-200deg) !important;
+      transform-origin: center;
     }
 </style>

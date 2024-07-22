@@ -4,79 +4,105 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Aaren Arasaratnam">
-	<!-- <img class="astro-a" src="background-2.gif" alt="Background Art"> -->
-	<audio controls loop>
-		<source src="cherry-blossom.mp3" type="audio/mpeg">
-	</audio>
+
 	<main>
-		<!-- <h1>Hi! This is a <span class="text-gradient">portfolio </span>site!!</h1> -->
-		<!-- <h2>Can you believe it?!?!?</h2> -->
+		<div class="welcome-text">
+			<h3>Come one, come all!</h3>
+			<h1>My name's<span class="name"> Aaren.</span></h1>
+			<h2>How's it going?</h2>
+		</div>
+		<img src="me.jpg">
 		<!-- <p class="instructions">
 			To get started, check out some <code>stuff</code> below, in one of these cards! Or not<br/>
 			<strong>Challenge:</strong> Try not to get bored!!!!
-		</p> -->
-		
+		</p>  -->
+		<Card type="ace-of-spades"/>
 	</main>
 </Layout>
 
 <style lang="scss">
-		@import '../global.scss';
-
-	.astro-a {
-		width: 100%;
-		height: 200%;	
-		object-fit: cover;
-		z-index: -1;
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%) translatey(20%);
-	}
+	@import '../global.scss';
+	
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+		// padding: 1rem;
+		// width: 800px;
+		// max-width: calc(100% - 2rem);
+		// color: white;
+		// // font-size: 20px;
+		// line-height: 1.6;
 
-		h1 {
-			// width: 400%;
-			font-size: 4rem;
-			font-weight: 700;
-			line-height: 1;
-			text-align: center;
-			margin-bottom: 1em;
+		.welcome-text {
+			text-align: left;
+			line-height: 0.9;
+			color: $secondary;
+			z-index: 5;
+			position: absolute;
+			inset: 6rem auto auto 8rem;
 
-			.text-gradient {
-				background-image: var(--accent-gradient);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-size: 400%;
-				background-position: 0%;
+			h1 {
+				font-size: 6rem;
+				font-weight: 700;
+				line-height: 1;
+
+				.name {
+					color: rgba($accent-1, 0.4);
+				}
+			}
+
+			h2 {
+				font-size: 3rem;
+				font-weight: 400;
+				margin-top: 0.5em;
+			}
+
+			h3 {
+				font-size: 2rem;
+				font-weight: 600;
+				margin-bottom: 0.5em;
 			}
 		}
 
-		.instructions {
-			margin-bottom: 2rem;
-			border: 1px solid rgba(var(--accent-light), 25%);
-			background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-			padding: 1.5rem;
-			border-radius: 8px;
-
-			code {
-				font-size: 0.8em;
-				font-weight: bold;
-				background: rgba(var(--accent-light), 12%);
-				color: rgb(var(--accent-light));
-				border-radius: 4px;
-				padding: 0.3em 0.4em;
-			}
-
-			strong {
-				color: rgb(var(--accent-light));
-			}
+		img {
+			width: 50%;
+			filter: contrast(0%) opacity(35%) blur(4px) drop-shadow(30em 1px 5px $accent-3);
+			z-index: -50;
+			position: absolute;
+			top: 0;
 		}
+
+		
+		// img::after {
+    //         content: '';
+    //         border: 2px solid black; /* Outline effect */
+    //         pointer-events: none;
+    //     }
+		// h1 {
+		// 	// width: 400%;
+		// 	font-size: 4rem;
+		// 	font-weight: 700;
+		// 	line-height: 1;
+		// 	text-align: center;
+		// 	margin-bottom: 1em;
+
+		// .instructions {
+		// 	margin-bottom: 2rem;
+		// 	border: 1px solid rgba(var(--accent-light), 25%);
+		// 	background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		// 	padding: 1.5rem;
+		// 	border-radius: 8px;
+
+		// 	code {
+		// 		font-size: 0.8em;
+		// 		font-weight: bold;
+		// 		background: rgba(var(--accent-light), 12%);
+		// 		color: rgb(var(--accent-light));
+		// 		border-radius: 4px;
+		// 		padding: 0.3em 0.4em;
+		// 	}
+
+		// 	strong {
+		// 		color: rgb(var(--accent-light));
+		// 	}
+		// }
 	}
 </style>

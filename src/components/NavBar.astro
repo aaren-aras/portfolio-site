@@ -1,0 +1,56 @@
+---
+import NavLink from './NavLink.astro';
+---
+
+<nav>
+  <ul role="list">
+    <!-- ♠ -->
+    <NavLink  
+      href="/"
+      title="Home"
+      body="Sweet Home Alabama."
+      htmlEntity="&#9824;" 
+    />
+    <!-- ♣ -->
+    <NavLink
+      href="/bio"
+      title="Bio"
+      body="Learn how I became the greatest web developer ever."
+      htmlEntity="&#9827;"
+    />
+    <!-- ♦ -->
+    <NavLink
+      href="/projects"
+      title="Projects"
+      body="My really cool awesome impressive projects that I totally made on my own."
+      htmlEntity="&#9830;"
+    />
+    <!-- ♥ -->
+    <NavLink
+      href="/hobbies"
+      title="Hobbies"
+      body="Putting the '' in 'hobbies' since 2003."
+      htmlEntity="&#9829;"
+    />
+  </ul>
+</nav>
+
+<style lang="scss">
+  @import '../global.scss';
+
+  nav {
+    display: flex;
+    align-items: center;
+    max-width: 10%;
+    min-height: 100vh;
+    position: fixed;
+    right: 1.5rem;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      // list-style: none;
+    }
+  }
+</style>
