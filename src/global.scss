@@ -14,6 +14,7 @@ $accent-gradient: linear-gradient(45deg, $primary, $secondary, 60%, $accent-1 40
 *:focus-visible { outline: 2px solid $accent-2; }
 
 html { 
+  min-height: 300vh;
   font-family: 
     Courier New,
     Courier,
@@ -27,6 +28,7 @@ html {
     system-ui,
     sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *::selection { 
