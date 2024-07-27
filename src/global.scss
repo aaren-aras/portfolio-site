@@ -29,9 +29,8 @@ html {
   scroll-behavior: smooth;
 }
 
-::selection { 
-  background-color: $accent-1; 
-  color: $accent-2;
+*::selection { 
+  background: rgba($accent-3, 0.5); 
 }
 
 ::-webkit-scrollbar { width: 10px; }
