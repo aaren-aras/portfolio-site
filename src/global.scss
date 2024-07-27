@@ -3,11 +3,7 @@ $secondary: rgb(253, 242, 231);
 $accent-1: rgb(133, 89, 66);
 $accent-2: rgb(147, 108, 87);
 $accent-3: rgb(155, 126, 110);
-
 $accent-gradient: linear-gradient(45deg, $primary, $secondary, 60%, $accent-1 40%);
-
-// remove this after implementing styles on Card.astro
-
 
 *, *::before, *::after {
   // box-sizing: border-box; <-- cuts off bottom of AudioPlayer? why
@@ -18,21 +14,19 @@ $accent-gradient: linear-gradient(45deg, $primary, $secondary, 60%, $accent-1 40
 *:focus-visible { outline: 2px solid $accent-2; }
 
 html { 
-  font-family: 'Courier New', Courier, monospace, system-ui, sans-serif;
-  scroll-behavior: smooth;
-}
-
-// remove this? it's for <code> tags
-code {
-  font-family:
+  font-family: 
+    Courier New,
+    Courier,
     Menlo,
     Monaco,
     Lucida Console,
     Liberation Mono,
     DejaVu Sans Mono,
     Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
+    monospace,
+    system-ui,
+    sans-serif;
+  scroll-behavior: smooth;
 }
 
 ::selection { 
