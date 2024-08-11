@@ -13,13 +13,13 @@ import Card from '../components/Card.astro';
 			<h2>How's it going??</h2>
 		</div>
 		<img src="me.jpg" />
-		<!-- <div>This is a portfolio site! I think.</div>
-		<p>
-			Not quite sure what to put here, but hey, just sit back, relax, grab some
-			salt and vinegar chips, play some tunes, and play with this node graph
-			thing.
-		</p>
-		<p>I'm sure I'll figure it all out along the way.</p>
+		<div>This is a portfolio site! I think.</div>
+		<div>
+			Not quite sure what to divut here, but hey, just sit back, relax, grab
+			some salt and vinegar chips, play some tunes, and play with this node
+			graph thing.
+		</div>
+		<div>I'm sure I'll figure it all out along the way.</div>
 		<div>
 			Or better yet, why don't you try out this lil minigame I've been working
 			on.
@@ -28,8 +28,12 @@ import Card from '../components/Card.astro';
 			Not your thing? No worries! Check out some of my projects on GitHub, or
 			not. It's all good.
 		</div>
-		<div>We're having a great time here anyway, right? Right? Right.</div> 
-		<div>Yeah okay Imma go work on something else I think. Something a tad bit more engineering-y, I reckon. Have a good one! Oh, and thanks for reading all this.</div>-->
+		<div>We're having a great time here anyway, right? Right? Right.</div>
+		<div>
+			Yeah okay Imma go work on something else I think. Something a tad bit more
+			engineering-y, I reckon. Have a good one! Oh, and thanks for reading all
+			this.
+		</div>
 	</main>
 </Layout>
 
@@ -37,6 +41,9 @@ import Card from '../components/Card.astro';
 	@import '../global.scss';
 
 	main {
+		div {
+			position: relative;
+		}
 		.welcome-text {
 			text-align: left;
 			line-height: 0.9;
