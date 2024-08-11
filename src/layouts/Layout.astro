@@ -4,6 +4,7 @@ import ForceDirectedGraph from '../components/ForceDirectedGraph.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import EffectButtons from '../components/EffectButtons.astro';
 import PortfolioButtons from '../components/PortfolioButtons.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
 
 interface Props {
 	title: string;
@@ -23,6 +24,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<LoadingScreen />
 		<!-- <div class="bkgd"></div>
 		<div class="bkgd-1"></div> -->
 		<div class="bkgd"></div>

@@ -1,0 +1,133 @@
+---
+
+---
+
+<!-- Adapted from: https://codepen.io/tashfene/pen/raEqrJ -->
+<div class="loading-overlay">
+  <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.querySelector('.loading-overlay');
+
+    // Hide the loading screen after the page is fully loaded
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+      }, 1000);
+    });
+  });
+</script>
+
+<!-- <div class="loading-overlay" id="loading-screen">
+  <div class="loading-spinner"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+
+      // Hide the loading screen after the page is fully loaded
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+        }, 50000);
+      });
+    });
+  </script>
+</div> -->
+
+<style lang="scss">
+  @import '../global.scss';
+
+  // body,
+  // html {
+  //   height: 100%;
+  // }
+
+  // body {
+  //   background-color: $accent-1;
+  // }
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(122, 103, 103, 0.8);
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    text-align: center;
+
+    z-index: 1000;
+    @include transition-ease;
+    opacity: 1;
+  }
+
+  .loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #fff;
+    top: 50%;
+    animation: loader 2s infinite ease;
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+  }
+
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(180deg);
+    }
+
+    50% {
+      transform: rotate(180deg);
+    }
+
+    75% {
+      transform: rotate(360deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loader-inner {
+    0% {
+      height: 0%;
+    }
+
+    25% {
+      height: 0%;
+    }
+
+    50% {
+      height: 100%;
+    }
+
+    75% {
+      height: 100%;
+    }
+
+    100% {
+      height: 0%;
+    }
+  }
+</style>
