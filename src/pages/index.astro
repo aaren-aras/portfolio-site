@@ -5,6 +5,7 @@ import Card from '../components/Card.astro';
 
 <Layout title="Aaren Arasaratnam">
 	<main>
+		<div class="test"></div>
 		<div class="welcome-text">
 			<!-- change text so if user is on for the first time it's one thing, then
 			 diff text if they refreshed, then another if they close the tab, but open it back -->
@@ -12,7 +13,7 @@ import Card from '../components/Card.astro';
 			<h1>My name's<span class="name"> Aaren.</span></h1>
 			<h2>How's it going??</h2>
 		</div>
-		<img src="me.jpg" />
+		<!-- <img src="me.jpg" /> -->
 		<div>This is a portfolio site! I think.</div>
 		<div>
 			Not quite sure what to put here, but hey, just sit back, relax, make some
@@ -43,7 +44,18 @@ import Card from '../components/Card.astro';
 <style lang="scss">
 	@import '../global.scss';
 
-	main {
+	body {
+		// .test {
+		// 	width: 60%;
+		// 	background-image: url('me.jpg');
+		// 	background-repeat: repeat-y;
+		// 	filter: contrast(0%) opacity(35%) blur(4px)
+		// 		drop-shadow(30em 1px 5px $accent-3);
+		// 	z-index: 500;
+		// 	position: absolute;
+		// 	top: 0;
+		// }
+
 		div {
 			margin-top: 10rem;
 		}
@@ -52,7 +64,7 @@ import Card from '../components/Card.astro';
 			line-height: 0.9;
 			color: $secondary;
 			z-index: 5;
-			position: absolute;
+			position: relative;
 			inset: 6rem auto auto 8rem;
 
 			h1 {
@@ -78,10 +90,12 @@ import Card from '../components/Card.astro';
 			}
 		}
 		img {
-			width: 50%;
+			width: 60%;
+			background-image: url('me.jpg');
+			background-repeat: repeat-y;
 			filter: contrast(0%) opacity(35%) blur(4px)
 				drop-shadow(30em 1px 5px $accent-3);
-			z-index: -50;
+			z-index: 500;
 			position: absolute;
 			top: 0;
 		}
