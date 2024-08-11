@@ -7,7 +7,7 @@
     const player = document.querySelector('#player');
     const playIconContainer = document.getElementById('play-icon');
     const audioPlayerContainer = document.getElementById(
-      'audio-player-container',
+      'audio-player-container'
     );
     const seekSlider = document.getElementById('seek-slider');
     const volumeSlider = document.getElementById('volume-slider');
@@ -65,12 +65,12 @@
       if (rangeInput === seekSlider)
         player.style.setProperty(
           '--seek-before-width',
-          (rangeInput.value / rangeInput.max) * 100 + '%',
+          (rangeInput.value / rangeInput.max) * 100 + '%'
         );
       else
         player.style.setProperty(
           '--volume-before-width',
-          (rangeInput.value / rangeInput.max) * 100 + '%',
+          (rangeInput.value / rangeInput.max) * 100 + '%'
         );
     };
 
@@ -106,11 +106,11 @@
 
     const displayBufferedAmount = () => {
       const bufferedAmount = Math.floor(
-        audio.buffered.end(audio.buffered.length - 1),
+        audio.buffered.end(audio.buffered.length - 1)
       );
       player.style.setProperty(
         '--buffered-width',
-        `${(bufferedAmount / seekSlider.max) * 100}%`,
+        `${(bufferedAmount / seekSlider.max) * 100}%`
       );
     };
 
@@ -119,7 +119,7 @@
       currentTimeContainer.textContent = calculateTime(seekSlider.value);
       player.style.setProperty(
         '--seek-before-width',
-        `${(seekSlider.value / seekSlider.max) * 100}%`,
+        `${(seekSlider.value / seekSlider.max) * 100}%`
       );
       raf = requestAnimationFrame(whilePlaying);
     };
@@ -252,7 +252,7 @@
   </script>
 
   <div id="audio-player-container">
-    <audio src="audio/cherry-blossom.mp3" preload="metadata" loop></audio>
+    <audio src="audio/mathematics.mp3" preload="metadata" loop></audio>
 
     <button id="play-icon"></button>
     <span id="current-time" class="time">0:00</span>
@@ -320,7 +320,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 5px;
-    opacity: 0;
+    // opacity: 0;
     -webkit-transition: all 500ms ease-in-out;
     -moz-transition: all 500ms ease-in-out;
     -ms-transition: all 500ms ease-in-out;

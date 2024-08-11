@@ -28,7 +28,9 @@
     img {
       width: 30px;
       height: 30px;
-
+      object-fit: cover;
+      // filter: blur(2px);
+      image-rendering: crisp-edges;
       &:hover {
         filter: opacity(50%);
         @include transition-ease;

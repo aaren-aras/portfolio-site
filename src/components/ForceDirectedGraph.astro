@@ -4,8 +4,8 @@
     version="1.1"
     baseProfile="full"
     xmlns="http://www.w3.org/2000/svg"
-    width="100%"
-    height="100%"></svg>
+    width="100vw"
+    height="100vh"></svg>
   <script is:inline src="https://d3js.org/d3.v4.js"></script>
   <script>
     type NodeType = {
@@ -65,7 +65,7 @@
       .data(nodes)
       .enter()
       .append('circle')
-      .attr('class', 'node skewed')
+      // .attr('class', 'node skewed')
       .attr('r', (d: NodeType) => d.size)
       .attr('fill', (d: NodeType) => d.color)
       .style('cursor', 'grab')
@@ -139,13 +139,15 @@
   @import '../global.scss';
 
   svg {
-    z-index: 50;
+    z-index: 5000;
     position: absolute;
     // inset: 0;
+    overflow: hidden;
+    border: 1px solid red;
   }
 
-  .skewed {
-    transform: skewX(-200deg) !important;
-    transform-origin: center;
-  }
+  // .skewed {
+  //   transform: skewX(-200deg) !important;
+  //   transform-origin: center;
+  // }
 </style>
