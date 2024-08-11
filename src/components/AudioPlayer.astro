@@ -292,17 +292,19 @@
     width: 20rem;
     z-index: 5;
     margin-left: 1.5rem;
-    // position: sticky;
-    inset: auto auto 0 0;
+    position: fixed;
+    top: 2.5em;
+    right: 2.5em;
+    // inset: auto auto 0 0;
 
     user-select: none;
   }
   #audio-player-container {
     position: relative;
-    max-width: 600px;
-    height: 32px;
-    border: 1px solid $accent-1;
-    border-radius: 2px;
+    max-width: 800px;
+    // height: 35px;
+    // border: 1px solid $accent-1;
+    // border-radius: 2px;
     z-index: 1;
     /* background color */
     background-color: $accent-2;
@@ -388,7 +390,7 @@
     font-weight: 700;
     letter-spacing: -1px;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    // font-family: 'Inter', sans-serif;
   }
   #current-time {
     position: absolute;

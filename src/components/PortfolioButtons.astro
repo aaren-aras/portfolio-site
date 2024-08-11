@@ -2,9 +2,15 @@
   <a href="https://www.linkedin.com/in/aaren-aras/" target="_blank">
     <img src="icons/linkedin.png" alt="" />
   </a>
-  <img src="icons/github.png" alt="" />
-  <img src="icons/doc.png" alt="" />
-  <img src="icons/doc.png" alt="" />
+  <a href="https://github.com/aaren-aras" target="_blank">
+    <img src="icons/github.png" alt="" />
+  </a>
+  <a href="">
+    <img src="icons/doc.png" alt="" />
+  </a>
+  <a href="">
+    <img src="icons/doc.png" alt="" />
+  </a>
 </div>
 
 <style lang="scss">
@@ -12,18 +18,20 @@
 
   div {
     display: flex;
+    flex-direction: column;
+    gap: 1.5em;
     z-index: 100;
-    position: sticky;
-    // bottom: 2.5rem;
-    // right: 2.5rem;
+    position: fixed;
+    top: 10em;
+    right: 2.5rem;
 
     img {
-      width: 30px;
-      height: 30px;
-      position: sticky;
+      width: 50px;
+      height: 50px;
 
       &:hover {
         filter: opacity(50%);
+        @include transition-ease;
       }
     }
   }
