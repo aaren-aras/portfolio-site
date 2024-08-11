@@ -74,7 +74,7 @@
           .drag<SVGCircleElement, NodeType>()
           .on('start', dragStart)
           .on('drag', drag)
-          .on('end', dragEnd),
+          .on('end', dragEnd)
       );
 
     const simulation = d3
@@ -86,7 +86,7 @@
         d3
           .forceLink(links)
           // .id((d: NodeType) => d.color) <-- Needed for dynamic props
-          .distance((d: LinkType) => 5 * (d.source.size + d.target.size)),
+          .distance((d: LinkType) => 5 * (d.source.size + d.target.size))
       )
       .on('tick', ticked);
 
@@ -139,7 +139,7 @@
   @import '../global.scss';
 
   svg {
-    z-index: 5000;
+    z-index: -5;
     position: absolute;
     // inset: 0;
     overflow: hidden;

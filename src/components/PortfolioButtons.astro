@@ -1,8 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-
-import Pixelifier from '../components/Pixelifier.astro';
-
 import LinkedIn from '../assets/linkedin.png';
 import GitHub from '../assets/github.png';
 import YouTube from '../assets/youtube.png';
@@ -11,12 +8,11 @@ import Document from '../assets/document.png';
 
 <div>
   <a href="https://www.linkedin.com/in/aaren-aras/" target="_blank">
-    <!-- <Pixelifier imgPath="../assets/linkedin.png" /> -->
     <!-- <Image src={LinkedIn} alt="LinkedIn" /> -->
-    <img src="icons/linkedin.png" alt="LinkedIn" />
+    <img class="portfolio-btn" src="icons/linkedin.png" alt="LinkedIn" />
   </a>
   <a href="https://github.com/aaren-aras" target="_blank">
-    <img src="../assets/github.png" alt="GitHub" />
+    <img class="portfolio-btn" src="icons/github.png" alt="GitHub" />
   </a>
   <a href="">
     <img src="../assets/youtube.png" alt="YouTube" />
@@ -25,6 +21,26 @@ import Document from '../assets/document.png';
     <img src="icons/document.png" alt="Resume + Portfolio" />
   </a>
 </div>
+
+<script type="">
+  import { pixelifyImage } from '../scripts/pixelifier.ts';
+
+  const portfolioBtns = document.querySelectorAll('.portfolio-btn');
+
+  for (const btn of portfolioBtns) {
+    const btnElement = btn as HTMLImageElement;
+    const imgPath = btnElement.src;
+    console.log(imgPath);
+    try {
+      const imgPath = btnElement.src;
+      console.log(imgPath);
+      const pixelatedSrc = await pixelifyImage(imgPath, 20);
+      btnElement.src = pixelatedSrc;
+    } catch (e) {
+      console.error('Error with pixelifying image:', e);
+    }
+  }
+</script>
 
 <style lang="scss">
   @import '../global.scss';
