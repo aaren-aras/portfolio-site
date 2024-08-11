@@ -14,7 +14,30 @@ const { imgPath } = Astro.props;
   let c = document.createElement('canvas');
   let img = new Image();
 
-  img.onload = () => {};
+  img.onload = () => {
+    c.width = img.width;
+    c.height = img.height;
+    let ctx = c.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    let imgData = ctx.getImageData(0, 0, img.width, img.height);
+    let data = imgData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+      let r = data[i];
+      let g = data[i + 1];
+      let b = data[i + 2];
+      let a = data[i + 3];
+
+      let avg = (r + g + b) / 3;
+
+      data[i] = avg;
+      data[i + 1] = avg;
+      data[i + 2] = avg;
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+    document.body.appendChild(c);
+  };
 
   img.src = document.querySelector('img').src;
 

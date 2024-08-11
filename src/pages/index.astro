@@ -4,114 +4,114 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Aaren Arasaratnam">
-	<main>
-		<div class="test"></div>
-		<div class="welcome-text">
-			<!-- change text so if user is on for the first time it's one thing, then
+  <main>
+    <div class="test"></div>
+    <div class="welcome-text">
+      <!-- change text so if user is on for the first time it's one thing, then
 			 diff text if they refreshed, then another if they close the tab, but open it back -->
-			<h3>Woah hey! Long time no see! How's it been?</h3>
-			<h1>My name's<span class="name"> Aaren.</span></h1>
-			<h2>How's it going??</h2>
-		</div>
-		<div class="blabber-text">
-			<div>This is a portfolio site! I think.</div>
-			<div>
-				Not quite sure what to put here, but hey, just sit back, relax, make
-				some popcorn, play some tunes, and play with this node graph thing? Not
-				sure why this is here, in all honesty, but who am I to judge?
-			</div>
-			<div>I'm sure I'll figure it all out along the way.</div>
-			<div>
-				Or better yet, why don't you try out this lil minigame I've been working
-				on.
-			</div>
-			<div>
-				Not your thing? No worries! Check out some of my projects on GitHub, or
-				not. It's all good.
-			</div>
-			<div>We're having a great time here anyway, right? Right? Right.</div>
-			<div>
-				Yeah okay Imma go work on something else I think. Web design's cool and
-				all, but I think I wanna do something a tad bit more..engineering-y, I
-				reckon. Have a good one! Oh, and thanks for reading all this. Cheers.
-			</div>
-			<div>
-				I'll just mark this down as a WIP for now. Yea, that sounds good. Ciao!
-			</div>
-		</div>
-	</main>
+      <h3>Woah hey! Long time no see. How's it been?</h3>
+      <h1>My name's<span class="name"> Aaren.</span></h1>
+      <h2>Sit back, relax, and play some tunes!</h2>
+    </div>
+    <div class="blabber-text">
+      <div>This is a portfolio site! I think.</div>
+      <div>
+        Not quite sure what to put here, but hey, just sit back, relax, make
+        some popcorn, play some tunes, and play with this node graph thing? Not
+        sure why this is here, in all honesty, but who am I to judge?
+      </div>
+      <div>I'm sure I'll figure it all out along the way.</div>
+      <div>
+        Or better yet, why don't you try out this lil minigame I've been working
+        on.
+      </div>
+      <div>
+        Not your thing? No worries! Check out some of my projects on GitHub, or
+        not. It's all good.
+      </div>
+      <div>We're having a great time here anyway, right? Right? Right.</div>
+      <div>
+        Yeah okay Imma go work on something else I think. Web design's cool and
+        all, but I think I wanna do something a tad bit more..engineering-y, I
+        reckon. Have a good one! Oh, and thanks for reading all this. Cheers.
+      </div>
+      <div>
+        I'll just mark this down as a WIP for now. Yea, that sounds good. Ciao!
+      </div>
+    </div>
+  </main>
 </Layout>
 
 <style lang="scss">
-	@import '../global.scss';
+  @import '../global.scss';
 
-	body {
-		// .test {
-		// 	width: 60%;
-		// 	background-image: url('me.jpg');
-		// 	background-repeat: repeat-y;
-		// 	filter: contrast(0%) opacity(35%) blur(4px)
-		// 		drop-shadow(30em 1px 5px $accent-3);
-		// 	z-index: 500;
-		// 	position: absolute;
-		// 	top: 0;
-		// }
+  body {
+    // .test {
+    // 	width: 60%;
+    // 	background-image: url('me.jpg');
+    // 	background-repeat: repeat-y;
+    // 	filter: contrast(0%) opacity(35%) blur(4px)
+    // 		drop-shadow(30em 1px 5px $accent-3);
+    // 	z-index: 500;
+    // 	position: absolute;
+    // 	top: 0;
+    // }
 
-		.blabber-text {
-			font-size: 2rem;
-			div {
-				margin-top: 3rem;
-				margin-left: 4rem;
-			}
-		}
-		.welcome-text {
-			text-align: left;
-			line-height: 0.9;
-			color: $secondary;
-			margin-top: 10rem;
-			z-index: 500;
-			position: relative;
-			inset: 2rem auto auto 10rem;
+    .blabber-text {
+      font-size: 2rem;
+      div {
+        margin-top: 3rem;
+        margin-left: 4rem;
+      }
+    }
+    .welcome-text {
+      text-align: left;
+      line-height: 0.9;
+      color: $secondary;
+      margin-top: 10rem;
+      z-index: 500;
+      position: relative;
+      inset: 2rem auto auto 10rem;
 
-			h1 {
-				font-size: 4.25rem;
-				font-weight: 700;
-				line-height: 1;
+      h1 {
+        font-size: 4.25rem;
+        font-weight: 700;
+        line-height: 1;
 
-				.name {
-					color: rgba($accent-1, 0.4);
-				}
-			}
+        .name {
+          color: rgba($accent-1, 0.4);
+        }
+      }
 
-			h2 {
-				font-size: 2rem;
-				font-weight: 400;
-				margin-top: 0.5em;
-			}
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-top: 0.5em;
+      }
 
-			h3 {
-				font-size: 1.4rem;
-				font-weight: 600;
-				margin-bottom: 0.5em;
-			}
-		}
-		img {
-			width: 60%;
-			background-image: url('me.jpg');
-			background-repeat: repeat-y;
-			filter: contrast(0%) opacity(35%) blur(4px)
-				drop-shadow(30em 1px 5px $accent-3);
-			z-index: 500;
-			position: absolute;
-			top: 0;
-		}
-		p {
-			position: relative;
-			inset: 30rem auto auto 8rem;
-			width: 50%;
-			font-size: 1.5rem;
-			line-height: 1.5;
-			color: $primary;
-		}
-	}
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+    }
+    img {
+      width: 60%;
+      background-image: url('me.jpg');
+      background-repeat: repeat-y;
+      filter: contrast(0%) opacity(35%) blur(4px)
+        drop-shadow(30em 1px 5px $accent-3);
+      z-index: 500;
+      position: absolute;
+      top: 0;
+    }
+    p {
+      position: relative;
+      inset: 30rem auto auto 8rem;
+      width: 50%;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: $primary;
+    }
+  }
 </style>
