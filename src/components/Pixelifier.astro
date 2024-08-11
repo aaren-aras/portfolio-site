@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   imgPath: string;
 }
@@ -6,40 +8,55 @@ interface Props {
 const { imgPath } = Astro.props;
 ---
 
-<div>
-  <img src=`${imgPath}` alt="" />
+<img src="icons/linkedin.png" alt="" />
+<div class="images">
+  <!-- <img src=`${imgPath}` alt="" /> -->
+  <!-- <img src="icons/linkedin.png" alt="" /> -->
 </div>
 
 <script>
-  let c = document.createElement('canvas');
-  let img = new Image();
+  document.addEventListener('DOMContentLoaded', () => {
+    let c = document.createElement('canvas');
+    let img = new Image();
 
-  img.onload = () => {
-    c.width = img.width;
-    c.height = img.height;
-    let ctx = c.getContext('2d');
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    let imgData = ctx.getImageData(0, 0, img.width, img.height);
-    let data = imgData.data;
+    img.onload = () => {
+      document.querySelector('.img')?.remove();
+      let w = img.width;
+      let h = img.height;
 
-    for (let i = 0; i < data.length; i += 4) {
-      let r = data[i];
-      let g = data[i + 1];
-      let b = data[i + 2];
-      let a = data[i + 3];
+      c.width = w;
+      c.height = h;
+      let ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0);
 
-      let avg = (r + g + b) / 3;
+      let pixelArr = ctx.getImageData(0, 0, w, h).data;
+      let sampleSize = 40;
 
-      data[i] = avg;
-      data[i + 1] = avg;
-      data[i + 2] = avg;
-    }
+      for (let y = 0; y < h; y += sampleSize) {
+        for (let x = 0; x < w; x += sampleSize) {
+          let p = (x + y * w) * 4;
+          ctx.fillStyle =
+            'rgba(' +
+            pixelArr[p] +
+            ',' +
+            pixelArr[p + 1] +
+            ',' +
+            pixelArr[p + 2] +
+            ',' +
+            pixelArr[p + 3] +
+            ')';
+          ctx.fillRect(x, y, sampleSize, sampleSize);
+        }
+      }
 
-    ctx.putImageData(imgData, 0, 0);
-    document.body.appendChild(c);
-  };
+      let imgPixelated = new Image();
+      imgPixelated.src = c.toDataURL();
+      imgPixelated.width = 40;
 
-  img.src = document.querySelector('img').src;
+      let divElement = document.querySelector('.images');
+      divElement.appendChild(imgPixelated);
+    };
 
-  // img1.src =
+    img.src = document.querySelector('.img').src;
+  });
 </script>

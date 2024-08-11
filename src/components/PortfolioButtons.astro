@@ -1,12 +1,25 @@
+---
+import { Image } from 'astro:assets';
+
+import Pixelifier from '../components/Pixelifier.astro';
+
+import LinkedIn from '../assets/linkedin.png';
+import GitHub from '../assets/github.png';
+import YouTube from '../assets/youtube.png';
+import Document from '../assets/document.png';
+---
+
 <div>
   <a href="https://www.linkedin.com/in/aaren-aras/" target="_blank">
+    <!-- <Pixelifier imgPath="../assets/linkedin.png" /> -->
+    <!-- <Image src={LinkedIn} alt="LinkedIn" /> -->
     <img src="icons/linkedin.png" alt="LinkedIn" />
   </a>
   <a href="https://github.com/aaren-aras" target="_blank">
-    <img src="icons/github.png" alt="GitHub" />
+    <img src="../assets/github.png" alt="GitHub" />
   </a>
   <a href="">
-    <img src="icons/youtube.png" alt="YouTube" />
+    <img src="../assets/youtube.png" alt="YouTube" />
   </a>
   <a href="">
     <img src="icons/document.png" alt="Resume + Portfolio" />
