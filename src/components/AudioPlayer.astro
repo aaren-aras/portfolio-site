@@ -1,4 +1,4 @@
-<!-- Adapted from: https://codepen.io/terio/pen/YzerzYw --><!-- CHANGE PLAYER COLOR -->
+<!-- Adapted from: https://codepen.io/terio/pen/YzerzYw -->
 <div id="player">
   <script>
     /* Implementation of the presentation of the audio player */
@@ -14,6 +14,13 @@
     const muteIconContainer = document.getElementById('mute-icon');
     let playState = 'play';
     let muteState = 'unmute';
+    let currentIndex = 0;
+    let shuffle = false;
+    const songs = [
+      'audio/cherry-blossom.mp3',
+      'audio/mathematics.mp3',
+      'audio/represent.mp3',
+    ];
 
     const playAnimation = lottieWeb.loadAnimation({
       container: playIconContainer,
@@ -22,6 +29,7 @@
       loop: false,
       autoplay: false,
       name: 'Play Animation',
+      cursor: 'pointer',
     });
 
     const muteAnimation = lottieWeb.loadAnimation({
@@ -279,7 +287,6 @@
     border: 0;
     margin-top: 4px;
     outline: none;
-    cursor: pointer;
   }
   /* WRAPS */
   #player {

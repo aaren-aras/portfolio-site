@@ -1,44 +1,47 @@
-$primary: rgb(23, 19, 19); 
+$primary: rgb(23, 19, 19);
 $secondary: rgb(253, 242, 231);
 $accent-1: rgb(133, 89, 66);
 $accent-2: rgb(147, 108, 87);
 $accent-3: rgb(155, 126, 110);
-$accent-gradient: linear-gradient(45deg, $primary, $secondary, 60%, $accent-1 40%);
+$accent-gradient: linear-gradient(
+  45deg,
+  $primary,
+  $secondary,
+  60%,
+  $accent-1 40%
+);
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   // box-sizing: border-box; <-- cuts off bottom of AudioPlayer? why
   margin: 0;
   padding: 0;
 }
 
-*:focus-visible { outline: 2px solid $accent-2; }
+*:focus-visible {
+  outline: 2px solid $accent-2;
+}
 
-html { 
+html {
   // min-height: 200vh;
-  font-family: 
-    Courier New,
-    Courier,
-    Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    monospace,
-    system-ui,
-    sans-serif;
+  font-family: Courier New, Courier, Menlo, Monaco, Lucida Console,
+    Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace,
+    system-ui, sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-*::selection { 
-  background: rgba($accent-3, 0.5); 
+*::selection {
+  background: rgba($accent-3, 0.5);
 }
 
-*::-webkit-scrollbar { width: 10px; }
-*::-webkit-scrollbar-thumb { 
-  background: gray; 
-  border-radius: 5px;
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 2px;
   transition: all 0.1s ease-in-out;
 
   &:hover {
@@ -46,14 +49,17 @@ html {
   }
 }
 
-img, picture, svg, video {
+img,
+picture,
+svg,
+video {
   display: block;
   max-width: 100%;
   max-height: 100%;
 }
 
-a { 
-  text-decoration: none; 
+a {
+  text-decoration: none;
   color: inherit;
 }
 
