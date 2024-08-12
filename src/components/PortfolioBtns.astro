@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import LinkedIn from '../assets/img/linkedin.png';
+import GitHub from '../assets/img/github.png';
+import YouTube from '../assets/img/youtube.png';
+import Document from '../assets/img/document.png';
+---
+
+<div>
+  <a
+    href="https://www.linkedin.com/in/aaren-aras/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Image class="btn" src={LinkedIn} alt="LinkedIn" />
+  </a>
+  <a
+    href="https://github.com/aaren-aras"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Image class="btn" src={GitHub} alt="GitHub" />
+  </a>
+  <a href="" target="_blank" rel="noopener noreferrer">
+    <Image class="btn" src={YouTube} alt="YouTube" />
+  </a>
+  <a
+    href="https://drive.google.com/file/d/1UJdGRATXejBGlbA76z_9qu0S4tWX__7E/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Image class="btn" src={Document} alt="Document" />
+  </a>
+</div>
+
+<script>
+  import { pixelifyImage } from '../scripts/pixelifier.ts';
+
+  const btnElements = document.querySelectorAll('.btn');
+
+  for (const btnElement of btnElements) {
+    const btnImg = btnElement as HTMLImageElement;
+    const imgPath = btnImg.src;
+    console.log(imgPath);
+    try {
+      const imgPath = btnImg.src;
+      console.log(imgPath);
+      const pixelatedSrc = await pixelifyImage(imgPath, 20);
+      btnImg.src = pixelatedSrc;
+    } catch (e) {
+      console.error('Error with pixelifying image:', e);
+    }
+  }
+</script>
+
+<style lang="scss">
+  @import '../global.scss';
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    z-index: 100;
+    position: fixed;
+    top: 8em;
+    right: 2.5rem;
+
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      // filter: blur(2px);
+      image-rendering: crisp-edges;
+      &:hover {
+        filter: opacity(50%);
+        @include transition-ease;
+      }
+    }
+  }
+</style>
