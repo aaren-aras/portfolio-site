@@ -12,6 +12,9 @@
     const seekSlider = document.getElementById('seek-slider');
     const volumeSlider = document.getElementById('volume-slider');
     const muteIconContainer = document.getElementById('mute-icon');
+    const prevButton = document.getElementById('prev-song');
+    const nextButton = document.getElementById('next-song');
+
     let playState = 'play';
     let muteState = 'unmute';
     let currentIndex = 0;
@@ -29,7 +32,6 @@
       loop: false,
       autoplay: false,
       name: 'Play Animation',
-      cursor: 'pointer',
     });
 
     const muteAnimation = lottieWeb.loadAnimation({
@@ -131,6 +133,28 @@
       );
       raf = requestAnimationFrame(whilePlaying);
     };
+
+    const updateSong = index => {
+      audio.src = songs[index];
+      audio.play();
+      playState = 'pause';
+      playAnimation.playSegments([40, 42], true);
+      requestAnimationFrame(whilePlaying);
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+      updateSong(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (shuffle) {
+        currentIndex = Math.floor(Math.random() * songs.length);
+      } else {
+        currentIndex = (currentIndex + 1) % songs.length;
+      }
+      updateSong(currentIndex);
+    });
 
     if (audio.readyState > 0) {
       displayDuration();
@@ -260,12 +284,16 @@
   </script>
 
   <div id="audio-player-container">
-    <audio src="audio/mathematics.mp3" preload="metadata" loop></audio>
-
+    <audio src="audio/cherry-blossom.mp3" preload="metadata" loop></audio>
     <button id="play-icon"></button>
     <span id="current-time" class="time">0:00</span>
     <input type="range" id="seek-slider" max="100" value="0" />
     <span id="duration" class="time">0:00</span>
+  </div>
+
+  <div id="audio-controls">
+    <button id="prev-song">Previous</button>
+    <button id="next-song">Next</button>
   </div>
 
   <div id="volume-slider-container">
@@ -316,6 +344,14 @@
     /* background color */
     background-color: $accent-2;
   }
+
+  #audio-controls {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    margin-top: 5em;
+  }
+
   #volume-slider-container {
     position: absolute;
     display: flex;
