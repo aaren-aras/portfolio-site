@@ -115,6 +115,7 @@
 
     const displayDuration = () => {
       durationContainer.textContent = calculateTime(audio.duration);
+      console.log(audio.duration);
     };
 
     const setSliderMax = () => {
@@ -122,13 +123,17 @@
     };
 
     const displayBufferedAmount = () => {
-      const bufferedAmount = Math.floor(
-        audio.buffered.end(audio.buffered.length - 1)
-      );
-      player.style.setProperty(
-        '--buffered-width',
-        `${(bufferedAmount / seekSlider.max) * 100}%`
-      );
+      if (audio?.buffered.length > 0) {
+        const bufferedAmount = Math.floor(
+          audio.buffered.end(audio.buffered.length - 1)
+        );
+        player.style.setProperty(
+          '--buffered-width',
+          `${(bufferedAmount / seekSlider.max) * 100}%`
+        );
+      } else {
+        player.style.setProperty('--buffered-width', '0%');
+      }
     };
 
     const whilePlaying = () => {
@@ -147,6 +152,11 @@
       playState = 'pause';
       playAnimation.playSegments([40, 42], true);
       requestAnimationFrame(whilePlaying);
+
+      displayDuration();
+      setSliderMax();
+      displayBufferedAmount();
+
       songInfoElement.innerHTML = `${songInfo[currentIndex]}`;
     };
 
