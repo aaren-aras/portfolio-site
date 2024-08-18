@@ -1,8 +1,9 @@
 <!-- Adapted from: https://codepen.io/terio/pen/YzerzYw -->
 <div id="player">
+  <script is:inline src="https://cdn.skypack.dev/lottie-web"></script>
   <script>
-    /* Implementation of the presentation of the audio player */
-    import lottieWeb from 'https://cdn.skypack.dev/lottie-web';
+    // Presentation
+    // import lottieWeb from 'https://cdn.skypack.dev/lottie-web';
 
     const player = document.querySelector('#player');
     const playIconContainer = document.getElementById('play-icon');
@@ -99,7 +100,7 @@
       showRangeProgress(e.target);
     });
 
-    /* Implementation of the functionality of the audio player */
+    // Functionality
     const audio = document.querySelector('audio');
     const durationContainer = document.getElementById('duration');
     const currentTimeContainer = document.getElementById('current-time');
@@ -148,9 +149,9 @@
 
     const updateSong = index => {
       audio.src = songs[index];
-      audio.play();
+      audio.pause();
       playState = 'pause';
-      playAnimation.playSegments([40, 42], true);
+      // playAnimation.playSegments([40, 42], true);
       requestAnimationFrame(whilePlaying);
 
       displayDuration();
