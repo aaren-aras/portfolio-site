@@ -1,4 +1,4 @@
-# Portfolio Website
+![README Banner](readme-banner.png)
 
 ```sh
 npm create astro@latest -- --template basics
